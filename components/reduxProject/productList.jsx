@@ -14,6 +14,7 @@ function ProductList(props) {
         <h2>Product List</h2>
             <ul>
                 {product.map(item=><li key={item.id} className={'flex flex-row justify-between'}><span>{item.id}</span><span>{item.name}</span>
+                    <span>${item.price}</span>
                 <button className="btn btn-success m-5" onClick={()=>dispatch(addToCard(item))}>Add It</button></li>)}
             </ul>
 
