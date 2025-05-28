@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { motion } from "motion/react"
 
-function MainRollDice(props) {
+function MainRollDice() {
     const diceCharacters = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅']; // dice face characters
     const [dice, setDice] = useState('⚄'); // initial dice face character
     const [isRolling, setIsRolling] = useState(false); // is dice rolling?
@@ -30,7 +30,7 @@ function MainRollDice(props) {
                 setRollHistory(prev => [newRoll, ...prev]); // add new roll to history
                 setIsRolling(false); // set is rolling as false
             }
-        }, 50);
+        }, 10);
     }
 
     return (
@@ -64,10 +64,10 @@ function MainRollDice(props) {
                 <h2 className="text-xl font-semibold mb-2">Roll History</h2>
                 <div className="border rounded-lg shadow-sm overflow-y-auto max-h-60">
                     {rollHistory.map((roll, index) => (
-                        <div key={index} className="flex justify-between items-center p-2 border-b hover:bg-gray-50">
+                        <div key={index} className="flex justify-between items-center p-2 border-b hover:bg-blue-500 hover:text-white">
                             <span>Roll #{roll.roll}</span>
-                            <span className="text-2xl">{roll.dice}</span>
-                            <span className="text-sm text-gray-500">{roll.time}</span>
+                            <span className=" text-5xl">{roll.dice}</span>
+                            <span className="text-sm text-white">{roll.time}</span>
                         </div>
                     ))}
                     {rollHistory.length === 0 && (
